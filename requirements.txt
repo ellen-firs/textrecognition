@@ -1,1 +1,3 @@
 easyocr
+paddlepaddle 
+paddleocr
