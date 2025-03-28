@@ -46,7 +46,7 @@ def carplate_recognition():
                 dim = (width, height)
                 resized_image = cv2.resize(carplate_img, dim, interpolation=cv2.INTER_AREA)
                 carplate_extract_img_gray = cv2.cvtColor(resized_image, cv2.COLOR_RGB2GRAY)
-                result = reader.readtext(carplate_extract_img_gray, detail=0, paragraph=True)
+                reader.readtext(carplate_extract_img_gray, detail=0, paragraph=True, allowlist='ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789')
                 col1, col2, col3 = st.columns((1, 1, 1))
                 with col1:
                     st.info('Загруженное изображение:')
@@ -65,7 +65,7 @@ def main():
     st.set_page_config(page_title='Текст с изображения', layout='wide')
     st.title("Работа №1")
     st.sidebar.title('Режимы работы')
-    choose = st.sidebar.selectbox("Выберите необходимую операцию", ("выбрать...",
+    choose = st.sidebar.selectbox("Выберите необходимую операцию", ("Выбрать...",
                                      "1. Распознавание текста с изображения",
                                      "2. Распознавание автомобильных номеров"))
 
