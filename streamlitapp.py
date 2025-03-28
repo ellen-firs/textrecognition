@@ -46,7 +46,7 @@ def carplate_recognition():
                 dim = (width, height)
                 resized_image = cv2.resize(carplate_img, dim, interpolation=cv2.INTER_AREA)
                 carplate_extract_img_gray = cv2.cvtColor(resized_image, cv2.COLOR_RGB2GRAY)
-                reader.readtext(carplate_extract_img_gray, detail=0, paragraph=True, allowlist='ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789')
+                result = reader.readtext(carplate_extract_img_gray, detail=0, paragraph=True, allowlist='ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789')
                 col1, col2, col3 = st.columns((1, 1, 1))
                 with col1:
                     st.info('Загруженное изображение:')
